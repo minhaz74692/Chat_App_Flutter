@@ -36,13 +36,18 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              SizedBox(
-                height: 200.0,
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Image.asset('images/logo.png'),
+              Flexible(
+                child: Hero(
+                  tag: 'logo',
+                  child: SizedBox(
+                    height: 200.0,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Image.asset('images/logo.png'),
+                    ),
+                  ),
                 ),
               ),
               SizedBox(
@@ -80,16 +85,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   try {
                     await _auth.createUserWithEmailAndPassword(
                         email: email, password: password);
-                    print(email + password);
-
                     void didPushButton() {
                       Navigator.pushNamed(context, ChatScreen.id);
                     }
 
                     didPushButton();
-                    setState(() {
-                      progressStatus = false;
-                    });
+                    // setState(() {
+                    //   progressStatus = false;
+                    // });
                   } catch (e) {
                     print(e);
                   }

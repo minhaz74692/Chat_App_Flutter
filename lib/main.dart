@@ -26,7 +26,7 @@ class FlashChat extends StatelessWidget {
       title: "Quick Chat",
       theme: ThemeData.light().copyWith(
         textTheme: TextTheme(
-          bodyText1: TextStyle(color: Colors.black54),
+          bodyText1: TextStyle(color: Colors.black54, fontFamily: 'monserate'),
         ),
       ),
       // home: WelcomeScreen(),
